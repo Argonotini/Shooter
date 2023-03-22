@@ -25,6 +25,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// Called for forwards/backwards input
+	void MoveForward(float Value);
+
+	// Called for side to side input
+	void MoveRight(float Value);
+
 private:
 	// Camera boom positioning the camera behind the character
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera", meta=(AllowPrivateAccess = "true"))
