@@ -6,6 +6,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "ShooterCharacter.generated.h"
 
+
+//------------------------------------------------------------------------------------------------------------
 UCLASS()
 class SHOOTER_API AShooterCharacter : public ACharacter
 {
@@ -68,3 +70,4 @@ public:
 	// Returns FollowCamera subobject
 	FORCEINLINE UCameraComponent *GetFollowCamera() const { return FollowCamera; }
 };
+//------------------------------------------------------------------------------------------------------------

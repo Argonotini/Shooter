@@ -1,5 +1,7 @@
 #include "ShooterCharacter.h"
 
+
+//------------------------------------------------------------------------------------------------------------
 // Sets default values
 AShooterCharacter::AShooterCharacter() :
 BaseTurnRate(45.f),
@@ -20,7 +22,7 @@ baseLookUpRate(45.f)
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 	
 }
-
+//------------------------------------------------------------------------------------------------------------
 // Called when the game starts or when spawned
 void AShooterCharacter::BeginPlay()
 {
@@ -28,7 +30,7 @@ void AShooterCharacter::BeginPlay()
 
 	
 }
-
+//------------------------------------------------------------------------------------------------------------
 void AShooterCharacter::MoveForward(float Value)
 {
 	if ((Controller != nullptr) && (Value != 0.0f))
@@ -41,7 +43,7 @@ void AShooterCharacter::MoveForward(float Value)
 		AddMovementInput(Direction, Value);
 	}
 }
-
+//------------------------------------------------------------------------------------------------------------
 void AShooterCharacter::MoveRight(float Value)
 {
 	if ((Controller != nullptr) && (Value != 0.0f))
@@ -54,18 +56,18 @@ void AShooterCharacter::MoveRight(float Value)
 		AddMovementInput(Direction, Value);
 	}
 }
-
+//------------------------------------------------------------------------------------------------------------
 void AShooterCharacter::TurnAtRate(float Rate)
 {
 	// calculate delta for this frame the rate information
 	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds()); // deg/sec * sec/frame
 }
-
+//------------------------------------------------------------------------------------------------------------
 void AShooterCharacter::LookUpAtRate(float Rate)
 {
 	AddControllerPitchInput(Rate * baseLookUpRate * GetWorld()->GetDeltaSeconds()); // deg/sec * sec/frame
 }
-
+//------------------------------------------------------------------------------------------------------------
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
 {
@@ -73,7 +75,7 @@ void AShooterCharacter::Tick(float DeltaTime)
 
 	
 }
-
+//------------------------------------------------------------------------------------------------------------
 // Called to bind functionality to input
 void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -93,4 +95,4 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 }
-
+//------------------------------------------------------------------------------------------------------------
